@@ -1,0 +1,247 @@
+/* General CRT and Terminal Effects */
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 100;
+    animation: scanline 6s linear infinite;
+  }
+  
+  .second-scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 100;
+    animation: scanline 8s linear infinite;
+    animation-delay: 3s;
+  }
+  
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100vh);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+  
+  .crt-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    background-size: 100% 4px;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+  
+  .crt-static {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAOC0lEQVR4nO1dbVczNw69JCEvBJInEEIgEIb//6/6fbu73e77tt0P1o2vZQ3QPgRCmHsOJ8mMx5YsWZJljQEynlBia58JEP8/zO1zT+ZklqnQ/iYfANnzu/5eWHoBXmb2c8bVZ9a/iPsygQk1+ftK+RDzARWfP9KUcpzSGLN+LuSMjzOf8hl+9qDy+3z+qfzZQQ1UCiXmD1YA0aOFyrKsCXVCK++rECskvCE0jskH75SHwSjVdRTY1f8BWw/XKntrP3G+Rf1w2fzzr8+bE5zJ/0N+r/xsoHH7c8TnMzS+g3x+NMYateJKoCk4qohH1JI1KolY2k7F8sqew6ics7BcCdCk/OIw8+1/XXQnd8TjivfhVvEJ8avir9K5fAP5CfIgvyvlV8env14ZY3wSQPHJUthSvsLkGJ8W2W4/7RYXnf0GrjUeRyI5Bo4KmjBor0bbiyHmVgYGwMgQRnHOE30N35DKkEqePQCfBns1gIQA6Cx+GW/+jPELcR0DCl+Ya0+U38LxZD8Ly+8J/YGFJvJsi/ms/x/mMP9kHHGRHOG81018XKr5iQC5iok3xptlTRwzuFAY+pq5wc+CK8SD/Te+fdoH6XJwkeMdgdTE2JuI/B2M71OeayoCDjUfn6jIrspD7bnDl7vEBT3S/DjyvE5bBxzPB9bVA9swNW1Rr6kklFfSs//HYQM4+Cu4fijYbKGufehC1AznKVNxHBXBDyRlUt8QGYXKBMMUTDMnY8G/0o3ij4Av+C5xvnvlGeVn+jGCuurB/Y+4DNXyN9g4uF6w3oe1z0ffQujTBYGwXdRf+IqpksgRJ8IwfibKMt0rp5Th1JonNoSAOeEa9DgoZpYtQgkF5wimfGdhVuR5sxeyrUtnxbyF/IHlcY+Y27xe0lYgXMhWvkd49ID1HvF8sHWL9/yU8fPslbdRB1pelUXpyFNTuOS/dcH4qCUNGc6JyJFGDgHZVEgvmUsQGOchhHFczXlhs+h6gBGNBrNFgJIRahwUQTnmkjKLgRLHPopHCBgFVEg/0O8Rdz8PC5szl38Qc8X75MNR3jc+12Jw7nuDcwyon0ltA6gbkLcJG6ovWIPCxouDj1QU24J3uF5sfq6DpJRqGcdx3L/A+PJ0CPM+Ytsom58Yh7APEvyw4Bln6C3PGk387ONi3AA7gel9eoL+wrR5JD9Rm2IVMvLBu/JXDgmg28TzA+CzYz5S9CvMr8S5na49y+80beDsJ5wveBHzrtH7ZVkXQIPymSjCO1dzsgJ6EhEQNaYNIpEgqqQG7xbHx3mUTAaQzPJ6MKpJwTnc/Um5qBNGN/YEpuQvH2GxiE9qwRVCHBQ30TFUFNACF5hGbnGO862pyV4CS9Wm+pRKCbi/GVDLHolrdRBl0o9iKgzMBZZ9yMKVCGbgol2+D5wfYnLJwG82D0rF38ea6C8Tr6VpNlQ6J/IGH4jAQWjRB2j40tNulHYwD0rnh0frnPV0grY31F/nWaJanSNMwXMYD8RbqBOMQNBx3kDu4pZ5B/em+UbpHkQvOcV9ijKhHq6HQvnYLhLvJJ6futGEAPz+KFxzHZNGraIdoMdxXWDxMXit8SLPqRkT1UvdoCeQiTYgOrHJBI2m40RuJDJ3GBYiLyXH/sL9joXkz5cco/eMRDFsD/VoYug6cuY3GJc+WNVpDh8btE6dIE6kCuI8+V7UTUkVQm1rhoJ5tSbVrDtgkUscuyHQiPcV7pBHWbgwQDxCuBjIgYsKXQIJ1W1CDUHjlRI6Wg0rjBujr5ZL1SdzbWcJqJ87HCO/Wib1WTJw4mwiz9VSP3ejkZhzxfbRYnb+dpi6kecw6YviGcEYKz6TSj8Tl/FMYBk3zJvE1C2lPZQUynM4St4J3ngRg2R5VCGJUlp44lJ6vPYw6dQ2M24xuFgJ8of8J+d9zwNCfuNnldOfMr+b+ZcJPxsj+klvZOsFh/4wRyj9eu5BJD5rSfmFjNvOuCMl0ovMcvcJVXS+tukRWjNuWzTHiAEvimen8RShwntA8TEDZ8ZUCvEYV2PPYsOpOXrA9HiHuYhxPvknjf17PLKYjUagMcYJQjkQ9bjmR4E+VjpRo6nqMH2qKHO8K8Mb4804d3OG9J1lLu+Apmbq5PJz1dXXyFvl3oq/Mm/+ePs1+jFvF8oH6LFbX+8rYMysoHzJs5VXf5lnR02Xnc97RKySTAQIJHW1UAnUhDqHZJDoZLkLTExsRnmMq5JI8Tb6X/FvHG+FK7k2pBmlpd6oVdSKMYe0yd9KffYwAt6hIrmR35JJcRG8k4v/Qkwa7vdL8r7YRuRjnpL5EeP0b6cPMfyqP41/r2j7tcJlNvi7SayX19Pn7x5FnTCWol5ekI/7H5Jnd4MrYPfJpwW8squUFHHYiNh+RgKD+K1L+uiRHtQDWtKpWOY8tk/4qPHN6LADKZ1J3FQrLjAB+QXmHB6xl1owvEQRLHn+RqBBDjdNFYQi2NJZXZUzxSNOJQ3bknKXxlntkorq1dmHW+dP6XehQArrDwd7koHMKoeKaS+NLxqSxPcl32fbsM6TRlPpJgLPY5ttBBj2dEsKw94ngeu9gtCYM0XJNpFTxArl9c3tsvpJXLBS3g/fE52/j/L8vmwq9REtYpHjcdhDx7KeeObJA+4bAln+LT9fhrP4QaXoHiydEuk8SVR5XnKkNYbIWO8ZZFvbBSxdQvAgxDkrNcwGi8qYJGDDSoD9eSbJSz6P8Jt30c6j7Fcj/dPFYta4dVLYQZgf6kN5xKKvkE8N3g8lu9QHyKF7Z9uyLJHtj8GkGNckJ4aBGPFJl+fjMdOLNCGuqjjg7DJ83H3OyqRp91IXXFJyeZeRVGGUgK/+wnMTO42c6zGGFSCVAhTnBvvI2mnmGHB0j1qOymgsK6NhCxvnpJN38ybiRdwJCCTdqpoictmf36O/Szdwsj2j+gvVWJY2BL5s5jEfopzKXG3QXZ9Q+QR+07XoGJJDT+uJaVxw9Vvs9439EDBtkfs7kR9OVHwToh5W4iPU5H9A5MH5naN+WCwQr3+QTS8tlwVbcR9DGk9QIBhyuXEua5lcR2nHHdJEjZA//dRBsbOeOJjroHknBLMGH469hshRZwqkkqptxNzPAUiAEKtCQO5f7iWrCHJl7Bux6UHUwRHPESi3WkvqJvtIJzf0ib6vV+0IPoG0oCb4AtniYiRkhXaskzQzVPz+xo3kSDtjJecbdbh+x5JiBqI9FeQ4doAcXPo95mKgYSim2ABidWOO+p2V9CC4EEgJx3yHYycPzeqTsoboi+Ottwv3J/lMXoqF+nu87+wyj5t2PokUS6XMJZaAui3nOUc+9/g7nyadk03QBoCFx1MtfAoaTJ4mLCmtFxYUm3Ve90o4jSnwVoCK+31Tx8ofUjpCRXEAMsI8iEvL9jesD3EZvm52vg9jfxDjUtrIvKz+cklwu3innJ3A+CjxcJK5uDrpAjLzPo4SBLQi3Qj9BKSNJsjwFeaGR6qqcHJ6xuDUca7tZ6x7BdP5m3ilktRHW3DcwrLyAfZwQeXIYqO7UZfQbzqCiElEoCvEnOoQN3ySez5JQQfPkPM4lxXOur7zdZYlQA1Bzta9iH/KQxgw7oJgK3X3NSk1NT8nrxRUv4X4QJVBFyw3XTaD5Fmqxjl5FraWafHSYVlsz/dJ8wmUaG/QfrEypmGmsqze5XmeZV7c4syOyLOBr/exJTUlzJDp9ByG8M3oVru+rk+CNXXyvb6hMcG2XgFQsY+iQoI5SRPAToUkQJmG4cu7xFlIPLvMVbWHs7zHnvsbJVkZcpxSYReUoZaBhRQmmy7XikHXzWLKh3kc4orAV4gdVT7KuRKBjFZ3YyoGQcekdi+ewkEJUFge3Q+K2YE4tez3bpqx3m9Qc3uwPeQXJTVPJxWnTf3loblZA1+08jpooJS96OZQQjjPrJu1S9JN2pzIb1OgoDrZH+Kjs8XysR2kFBqXvr7ASiMgNDKiUDYJ5r3SwqQP6u7rssNDy9de1N07iyzmTJ6yuhN3jGmmQQZlNNKNB1iw0eGxFGVvO/RFHnFjFKRnWX1QZchx17ibx8TOOoYNZ+mFGTu82H7PP4mBJpXuLq2MRJ6DRw7pbOQJ7YvzNksQPlz2fUxlN1yGhO7+rLEyFvPjp5hutz2cBIbJ6R+B//j+JT9Zi3d+UWe+rU8c3wf5PO8X4JdMxrPCXZs0+xfwwXpIDf/XXBXz+3F5JWL6fP46ExTxXVgPiBOVbACx8ayBn1Zc6oJ6+1Y+oXxMJk972vPRnFKQr9ktaQiWuhKy71nfuTqAdo8w/IMJwTex/NHrnydWL+DDSvk8Euc4bL9evkflrE3yWYXWQY4merPDA7R7NNXbJzAuDax0MNjPA7d1CKvS/FLNwsf8xUc6q36AeFjz0+rGauNs+UJ1oYJXkGsErqCgEpgKGw3CbpXCXus8UvJd0Fw+BK9X/d9Kfgf9RrpA+CHpJBFYXCWJe7cbTHQMmRgiXJQRVjt3g+k4d2rH+kjYnLHjlcn3Lfwbythjm1Z+Gn8/j1d/hrvSIq1tVpNu9MQz+U2nkLVh/KkPjVelflLaNxf93EXLobG+WZRR95TMgZ+oH2NKJX8yDojcJuHXdvh2F6cVG9MXDvjEOV3wnGMdL9XbAJjvCYusc2qIUUFZe6bs7bLaGnLy3TZkgUbM1V02UeXonZd1QlzqbZ55XJc84vOBfHrOlNezSy3p6X+YxdV4FP1AlezipiuEWKq3XOwcM+vLZnFz07q6uMizjqVvvI5+SznhZzCSG8PmL01UKpObkPWk+BVz/vxaGRvcJ6qUTEBxuBGLIRkzVSn5F1iS33R5jhYXAAAAAElFTkSuQmCC');
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 98;
+  }
+  
+  /* Glitch animations for terminal text */
+  .glitch-effect {
+    animation: glitch 0.12s infinite;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  /* Terminal blinking cursor */
+  .command-prompt {
+    color: #0f0;
+    font-weight: bold;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .text-term-cursor {
+    display: inline-block;
+    animation: blink 1.06s infinite;
+    color: #0f0;
+  }
+  
+  /* Key press styling */
+  .key-press {
+    display: inline-block;
+    transition: transform 0.15s ease;
+  }
+  
+  .key-press:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Terminal window styling */
+  .terminal-window {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+  
+  .terminal-window:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4),
+                0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Terminal header styling */
+  .terminal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Terminal text coloring */
+  .text-term-text {
+    color: #f8f8f8;
+  }
+  
+  .text-term-command {
+    color: #f8f8f8;
+  }
+  
+  .text-term-prompt {
+    color: #0f0;
+  }
+  
+  .text-term-folder {
+    color: #42a5f5;
+  }
+  
+  .text-term-executable {
+    color: #ff7043;
+  }
+  
+  .text-term-heading {
+    color: #ffeb3b; 
+  }
+  
+  .text-term-comment {
+    color: #607d8b;
+  }
+  
+  .text-term-bullet {
+    color: #42a5f5;
+    margin-right: 5px;
+  }
+  
+  /* Terminal theme colors */
+  .bg-term-bg {
+    background-color: #1a1a1a;
+  }
+  
+  .bg-term-header {
+    background-color: #303030;
+  }
+  
+  .border-term-border {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .bg-term-key {
+    background-color: #2d2d2d;
+  }
+  
+  .text-term-title {
+    color: #d0d0d0;
+  }
+  
+  .bg-term-highlight {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Typing animation */
+  @keyframes terminalType {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  .animate-terminalType {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    animation: terminalType 3s steps(60, end);
+  }
+  
+  /* Line load animation */
+  @keyframes lineLoad {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .line-load {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .line-load::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(144, 238, 144, 0.2), transparent);
+    animation: lineLoad 1.5s ease;
+  }
+  
+  /* Section transition animation */
+  @keyframes sectionFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  section {
+    animation: sectionFade 0.5s ease-out;
+  }
